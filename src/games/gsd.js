@@ -1,11 +1,7 @@
 #!/usr/bin/env node
-const gameDescription = 'Find the greatest common divisor of given numbers.';
+import getRandomNum from '../utils.js';
 
-const getRandomNum = () => {
-  const min = 1;
-  const max = 100;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const gcd = (a, b) => {
   while (b !== 0) {

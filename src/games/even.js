@@ -1,23 +1,30 @@
 import readlineSync from 'readline-sync';
 import userName from './cli.js';
+import getRandomNum from '../utils.js';
 
-function randomNumber() {
-  const min = 1;
-  const max = 100;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+function isAnswerCorrect(currentNum, userAnswer) {
+  const isEven = currentNum % 2 === 0;
+  return (isEven && userAnswer === 'yes') || (!isEven && userAnswer === 'no');
+}
+
+function displayResult(userAnswer, isEven) {
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEven ? 'yes' : 'no'}'.`);
+}
+
+function askQuestion() {
+  const currentNum = getRandomNum();
+  console.log(`Question: ${currentNum}`);
+  const userAnswer = readlineSync.question('Your answer: ');
+  return { currentNum, userAnswer };
 }
 
 function answer(name) {
   for (let i = 0; i < 3; i += 1) {
-    const currentNum = randomNumber();
-    console.log(`Question: ${currentNum}`);
-    const isEven = currentNum % 2 === 0;
-    const userAnswer = readlineSync.question('Your answer: ');
-
-    if ((isEven && userAnswer === 'yes') || (!isEven && userAnswer === 'no')) {
+    const { currentNum, userAnswer } = askQuestion(name);
+    if (isAnswerCorrect(currentNum, userAnswer)) {
       console.log('Correct!');
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEven ? 'yes' : 'no'}'.`);
+      displayResult(userAnswer, currentNum % 2 === 0);
       console.log(`Let's try again, ${name}!`);
       return;
     }
@@ -25,4 +32,4 @@ function answer(name) {
   console.log(`Congratulations, ${name}!`);
 }
 
-export { userName, randomNumber, answer };
+export { userName, answer };

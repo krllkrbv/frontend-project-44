@@ -1,10 +1,7 @@
 #!/usr/bin/env node
-const gameDescription = 'What number is missing in the progression?';
+import getRandomNum from '../utils.js';
 
-const getRandomNum = (max) => {
-  const min = 1;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+const gameDescription = 'What number is missing in the progression?';
 
 const generateProgression = (a, d) => {
   const progression = [];
@@ -15,8 +12,8 @@ const generateProgression = (a, d) => {
 };
 
 const getGameRound = () => {
-  const a = getRandomNum(50);
-  const d = getRandomNum(10);
+  const a = getRandomNum(1, 100);
+  const d = getRandomNum(1, 100);
   const progression = generateProgression(a, d);
   const randomIndex = Math.floor(Math.random() * progression.length);
   const hiddenElement = progression[randomIndex];

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const gameDescription = 'What is the result of the expression?';
+import getRandomNum from '../utils.js';
 
-const getRandomNum = () => Math.floor(Math.random() * 100) + 1;
+const gameDescription = 'What is the result of the expression?';
 
 const operators = ['+', '-', '*'];
 
