@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import userName from './cli.js';
 import getRandomNum from '../utils.js';
 
 function isAnswerCorrect(currentNum, userAnswer) {
@@ -18,9 +17,9 @@ function askQuestion() {
   return { currentNum, userAnswer };
 }
 
-function answer(name) {
+const answer = (name) => {
   for (let i = 0; i < 3; i += 1) {
-    const { currentNum, userAnswer } = askQuestion(name);
+    const { currentNum, userAnswer } = askQuestion();
     if (isAnswerCorrect(currentNum, userAnswer)) {
       console.log('Correct!');
     } else {
@@ -32,4 +31,4 @@ function answer(name) {
   console.log(`Congratulations, ${name}!`);
 }
 
-export { userName, answer };
+export default answer;
