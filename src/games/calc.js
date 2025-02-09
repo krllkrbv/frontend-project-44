@@ -1,11 +1,7 @@
 #!/usr/bin/env node
 const gameDescription = 'What is the result of the expression?';
 
-const getRandomNum = () => {
-  const min = 1;
-  const max = 100;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+const getRandomNum = () => Math.floor(Math.random() * 100) + 1;
 
 const operators = ['+', '-', '*'];
 

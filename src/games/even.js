@@ -1,10 +1,5 @@
 import readlineSync from 'readline-sync';
-
-function userName() {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  return name;
-}
+import userName from './cli.js';
 
 function randomNumber() {
   const min = 1;
