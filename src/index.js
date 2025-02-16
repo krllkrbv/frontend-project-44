@@ -1,9 +1,8 @@
 import readlineSync from 'readline-sync';
-import userName from './games/cli.js';
-
-console.log('Welcome to the Brain games!');
+import userName from './cli.js';
 
 const runGame = (gameDescription, getGameRound) => {
+  console.log('Welcome to the Brain games!');
   const name = userName();
   console.log(gameDescription);
 

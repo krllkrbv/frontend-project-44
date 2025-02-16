@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+import runGame from '../index.js';
 import getRandomNum from '../utils.js';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -11,5 +11,6 @@ const getGameRound = () => {
   const correctAnswer = isEven(num) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
+const runEvenGame = () => runGame(gameDescription, getGameRound);
 
-export { getGameRound, gameDescription };
+export default runEvenGame;
